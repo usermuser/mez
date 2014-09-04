@@ -1,0 +1,161 @@
+##############################################################
+#
+#
+#
+#			G I T
+#
+############################################################3
+
+usermuser r4p dota2
+akunamatata 74 djangocms
+cms74 74 djangocms
+mez 74
+
+
+virtualenvs management
+https://www.pythonanywhere.com/wiki/VirtualEnvForNewerDjango
+
+
+(django16)17:02 ~ $ source virtualenvwrapper.sh
+
+To switch on virtualenvwrapper (you can add this to your .bashrc)
+And
+(django16)17:02 ~ $ workon django16
+to switch to working on your virtual environment.
+
+DJANGO_PATH >>
+>> https://www.pythonanywhere.com/user/sh74/files/home/sh74/.virtualenvs/django16/lib/python2.7/site-packages/django
+
+lsb_release -a
+Ubuntu 13.10
+
+
+#################  GIT  githowto.com ##############################
+git add <file/dir> - add file/dir (stage) добавить в буферную зону
+git checkout <file/dir> - remove file/dir
+
+git commit -m "First comment" - commit file/dir
+git reset HEAD <file/dir> - delete from stage (unstage)
+
+git status - main cmd for cheking status
+
+Если удалили файл или файлы, чтобы это зафиксировать
+git add -A
+####################################################
+try.github.io - обучение
+githowto.com - обучение
+
+co = checkout
+ci = commit
+st = status
+br = branch
+hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+type = cat-file -t
+dump = cat-file -p
+
+Если вы никогда ранее не использовали git, для начала вам необходимо осуществить установку. Выполните следующие команды, чтобы git узнал ваше имя и электронную почту. Если git уже установлен, можете переходить к разделу окончания строк.
+
+1. ВЫПОЛНИТЬ:
+git config --global user.name "Your Name"
+git config --global user.name "usermuser"
+git config --global user.email "your_email@whatever.com"
+git config --global user.email "lwrdrstv@gmail.com"
+
+
+Параметры установки окончаний строк
+
+Также, для пользователей Unix/Mac:
+
+2. ВЫПОЛНИТЬ:
+git config --global core.autocrlf input
+git config --global core.safecrlf true
+
+Переходим в рабочую папку
+Чтобы создать git репозиторий
+
+3. ВЫПОЛНИТЬ:
+git init
+
+
+Теперь давайте добавим в репозиторий страницу/папку «Hello, World».
+
+4. ВЫПОЛНИТЕ:
+git add hello.html
+git commit -m "First Commit"
+
+Для проверки репозитория пишем
+5. ВЫПОЛНИТЕ6
+git status
+
+Увидим nothing to commit, working directory clean
+
+ВАЖНО > если изменили или добавили какие-нибудь файлы и хотим их добавить пишем:
+
+git add "имя файла(папки)"
+
+git checkout -- "имя файла(папки)" если хотите отменить изменения
+
+
+###############
+Предположим, что вы отредактировали три файла (a.html, b.html, and c.html). Теперь вы хотите закоммитить все изменения, \
+при этом чтобы изменения в a.html и b.html были одним коммитом,
+в то время как изменения в c.html логически не связаны с первыми двумя файлами и должны идти отдельным коммитом.
+
+В теории, вы можете сделать следующее:
+
+git add a.html
+git add b.html
+git commit -m "Changes for a and b"
+git add c.html
+git commit -m "Unrelated change to c"
+Разделяя индексацию и коммит, вы имеете возможность с легкостью настроить, что идет в какой коммит.
+
+
+git checkout <hash> - вернуться к нужной версии (у каждого коммита есть свой хеш, узнать хеш git status)
+git checkout master - вернуться к последней версии в ветке master
+
+git tag v1 - дать тег v1 текущей версии
+git tag v1^ Или git tag v1~1 - дать тег предыдущей версии (перед v1)
+git checkout <тег> - вернуться к версии <тег>
+
+git tag  - просмотр текущих тегов
+git hist master --all - посмотреть теги в логе. Кроме того HEAD показывает коммит, на который вы переключились
+
+Отмена коммитов
+Отмена коммитов
+Отмена коммитов
+
+git revert HEAD - отменяем последний коммит, то есть появляется новый коммит с пометкой отмены
+
+HARD отмена коммитов
+
+
+Добавить удаленный репозиторий
+git remote add origin https://github.com/<USERNAME>/<PROJECT_NAME>.git
+
+Скопировать файлы из локального в удаленный репозиторий.
+So let's push our local changes to our origin repo (on GitHub).
+git push -u origin master
+
+Забрать с удаленного сервера (origin) и положить в наш локальный репозиторий (master)
+git pull origin master
+
+
+###########*******CLONE INSTRUCTIONS ***********###########
+Клонирование репозитория осуществляется командой git clone [url]. Например,
+если вы хотите клонировать библиотеку Ruby Git, известную как Grit, вы можете сделать это следующим образом:
+
+$ git clone git://github.com/schacon/grit.git
+Эта команда создаёт каталог с именем grit, инициализирует в нём каталог .git,
+скачивает все данные для этого репозитория и создаёт (checks out) рабочую копию последней версии.
+Если вы зайдёте в новый каталог grit, вы увидите в нём проектные файлы, пригодные для работы и использования.
+Если вы хотите клонировать репозиторий в каталог, отличный от grit, можно это указать в следующем параметре командной строки:
+
+$ git clone git://github.com/schacon/grit.git mygrit
+Эта команда делает всё то же самое, что и предыдущая, только результирующий каталог будет назван mygrit.
+
+В Git'е реализовано несколько транспортных протоколов, которые вы можете использовать.
+В предыдущем примере использовался протокол git://, вы также можете встретить http(s):// или user@server:/path.git,
+использующий протокол передачи SSH.
+
+
